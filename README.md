@@ -35,27 +35,21 @@ The purpose of the lab is to create a controlled environment where security tool
 
 The lab is configured on a private virtual network so that security workstations and target machines can interact safely without exposing host system assets.
 
-```text
-Host Machine (Windows 10)
- └── VirtualBox Hypervisor
-      ├── Kali Linux (Primary OS | NAT Network IP: 10.0.2.3)
-      ├── Windows 10 (Target Workstation | NAT Network)
-      └── Android-x86 (Experimental Build)
 
 ## 🛠️ Lab Setup Procedure
 
-### Step 1. VirtualBox & NAT Network Configuration
+ Step 1. VirtualBox & NAT Network Configuration
 A dedicated **NAT Network** was created in VirtualBox tools to allow VM-to-VM communication with outbound internet access.
 * **Network Name:** `NatNetwork`
 * **IPv4 Prefix:** `10.0.0.0/24`
 * **DHCP:** Enabled
 
-### Step 2. Kali Linux & Windows 10 Deployment
+Step 2. Kali Linux & Windows 10 Deployment
 1. Imported Kali Linux appliance into VirtualBox and attached the primary interface to `NatNetwork`.
 2. Deployed Windows 10 by pulling a clean ISO image and mounting it via VirtualBox virtual optical drives (simulating local D-drive media).
 
-### Step 3. Android-x86 Experimentation & Troubleshooting
-* **Process:** Performed manual storage formatting, set up partition tables (MBR/GPT), and configured the GRUB bootloader via the CLI.
+Step 3. Android-x86 Experimentation & Troubleshooting
+Process: Performed manual storage formatting, set up partition tables (MBR/GPT), and configured the GRUB bootloader via the CLI.
 * **Issue:** Hit a hardware graphic driver incompatibility, resulting in a display boot-loop stuck at the Android logo.
 * **Resolution:** Reviewed boot logs to confirm driver failure and pivoted focus to the stable Kali and Windows 10 lab environment.
 
